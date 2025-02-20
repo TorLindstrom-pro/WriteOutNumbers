@@ -8,6 +8,9 @@ public class UnitTest1
     public void Test1()
     {
         // act
-        NumberWriter.WriteOut(0);
+        var result = NumberWriter.WriteOut(0);
+        
+        // assert
+        Assert.Equal("zero", result);
     }
 }

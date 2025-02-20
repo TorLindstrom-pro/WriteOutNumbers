@@ -2,8 +2,8 @@ namespace WriteOutNumbers;
 
 public class NumberWriter
 {
-	public static void WriteOut(int i)
+	public static string WriteOut(int i)
 	{
-		
+		return "zero";
 	}
 }
