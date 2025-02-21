@@ -56,13 +56,23 @@ public class NumberSpellerTests
 	[InlineData(89, "eighty-nine")]
 	[InlineData(90, "ninety")]
 	[InlineData(99, "ninety-nine")]
-	public void GivenANumberOverTwenty_ShouldSpellOutTheNumber(int number, string expectedString)
+	public void GivenANumberBetweenTwentyAndNinetyNine_ShouldSpellOutTheNumber(int number, string expectedString)
 	{
 		// act
 		var result = NumberSpeller.SpellOut(number);
 		
 		// assert
 		Assert.Equal(expectedString, result);
+	}
+
+	[Fact]
+	public void GivenHundred_ShouldWriteOutThatNumber()
+	{
+		// act
+		var result = NumberSpeller.SpellOut(100);
+		
+		// assert
+		Assert.Equal("one hundred", result);
 	}
 
 	[Fact]
