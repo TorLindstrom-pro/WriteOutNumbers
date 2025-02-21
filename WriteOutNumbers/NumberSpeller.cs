@@ -40,7 +40,7 @@ public abstract class NumberSpeller
 			>= 70 and <= 79 => $"seventy{AppendEventualSecondNumber(number % 10)}",
 			>= 80 and <= 89 => $"eighty{AppendEventualSecondNumber(number % 10)}",
 			>= 90 and <= 99 => $"ninety{AppendEventualSecondNumber(number % 10)}",
-			>= 100 => $"one hundred{AppendEventualSecondNumber(number % 100, false)}",
+			>= 100 and <= 999 => $"{SpellNumber(number / 100)} hundred{AppendEventualSecondNumber(number % 100, false)}",
 			_ => throw new ArgumentOutOfRangeException()
 		};
 	}

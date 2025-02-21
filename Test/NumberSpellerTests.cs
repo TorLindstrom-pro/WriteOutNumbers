@@ -69,7 +69,11 @@ public class NumberSpellerTests
 	[InlineData(100, "one hundred")]
 	[InlineData(101, "one hundred one")]
 	[InlineData(199, "one hundred ninety-nine")]
-	public void GivenHundred_ShouldWriteOutThatNumber(int number, string expectedString)
+	[InlineData(200, "two hundred")]
+	[InlineData(299, "two hundred ninety-nine")]
+	[InlineData(699, "six hundred ninety-nine")]
+	[InlineData(999, "nine hundred ninety-nine")]
+	public void GivenNumberInTheHundreds_ShouldWriteOutThatNumber(int number, string expectedString)
 	{
 		// act
 		var result = NumberSpeller.SpellOut(number);
