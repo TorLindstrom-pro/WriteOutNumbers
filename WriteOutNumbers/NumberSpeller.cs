@@ -2,14 +2,8 @@ namespace WriteOutNumbers;
 
 public abstract class NumberSpeller
 {
-	public static string SpellOut(int number)
-	{
-		return SpellNumber(number);
-	}
-
-	private static string SpellNumber(int number)
-	{
-		return number switch
+	public static string SpellOut(int number) =>
+		number switch
 		{
 			0 => "zero",
 			1 => "one",
@@ -44,19 +38,18 @@ public abstract class NumberSpeller
 			>= 1000 and <= 999999 => SpellNumberInTheThousands(number),
 			_ => throw new ArgumentOutOfRangeException()
 		};
-	}
 
 	private static string SpellNumberInTheHundreds(int number) => 
-		$"{SpellNumber(number / 100)} hundred{AppendEventualSecondNumber(number % 100, false)}";
+		$"{SpellOut(number / 100)} hundred{AppendEventualSecondNumber(number % 100, false)}";
 
 	private static string SpellNumberInTheThousands(int number) => 
-		$"{SpellNumber(number / 1000)} thousand{AppendEventualSecondNumber(number % 1000, false)}";
+		$"{SpellOut(number / 1000)} thousand{AppendEventualSecondNumber(number % 1000, false)}";
 
 	private static string AppendEventualSecondNumber(int number, bool shouldAppendHyphen = true)
 	{
 		if (number == 0)
 			return "";
 
-		return (shouldAppendHyphen ? "-" : " ") + SpellNumber(number);
+		return (shouldAppendHyphen ? "-" : " ") + SpellOut(number);
 	}
 }
