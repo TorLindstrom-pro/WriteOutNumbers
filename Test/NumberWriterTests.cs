@@ -2,10 +2,10 @@
 
 namespace Test;
 
-public class UnitTest1
+public class NumberWriterTests
 {
-    [Fact]
-    public void Test1()
+    [Fact(DisplayName = "Inputting number 0 should write out 'zero'")]
+    public void GivenNumber0_ShouldWriteOutZero()
     {
         // act
         var result = NumberWriter.WriteOut(0);

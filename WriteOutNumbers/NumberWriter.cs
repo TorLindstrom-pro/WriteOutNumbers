@@ -1,8 +1,8 @@
 namespace WriteOutNumbers;
 
-public class NumberWriter
+public abstract class NumberWriter
 {
-	public static string WriteOut(int i)
+	public static string WriteOut(int number)
 	{
 		return "zero";
 	}
