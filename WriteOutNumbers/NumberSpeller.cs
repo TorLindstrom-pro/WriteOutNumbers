@@ -4,10 +4,10 @@ public abstract class NumberSpeller
 {
 	public static string SpellOut(int number)
 	{
-		return SpellNumberWithMultipleDigits(number);
+		return SpellNumber(number);
 	}
 
-	private static string SpellNumberWithMultipleDigits(int number)
+	private static string SpellNumber(int number)
 	{
 		return number switch
 		{
@@ -54,9 +54,9 @@ public abstract class NumberSpeller
 
 		if (shouldAppendHyphen)
 		{
-			return $"-{SpellNumberWithMultipleDigits(number)}";
+			return $"-{SpellNumber(number)}";
 		}
 
-		return $" {SpellNumberWithMultipleDigits(number)}";
+		return $" {SpellNumber(number)}";
 	}
 }
