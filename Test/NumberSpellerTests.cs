@@ -48,4 +48,17 @@ public class NumberSpellerTests
 		// assert
 		Assert.Equal(expectedString, result);
 	}
+
+	[Theory(DisplayName = "Given a number in the thirties should spell out the number")]
+	[InlineData(30, "thirty")]
+	[InlineData(31, "thirty-one")]
+	[InlineData(39, "thirty-nine")]
+	public void GivenANumberInTheThirties_ShouldSpellOutTheNumber(int number, string expectedString)
+	{
+		// act
+		var result = NumberSpeller.SpellOut(number);
+		
+		// assert
+		Assert.Equal(expectedString, result);
+	}
 }

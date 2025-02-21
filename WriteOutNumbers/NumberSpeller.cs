@@ -13,7 +13,27 @@ public abstract class NumberSpeller
 
 	private static string SpellNumberGreaterThan20(int number)
 	{
-		return $"twenty-{SpellNumberNoBiggerThan20(number - 20)}";
+		string firstNumber;
+		if (number is > 20 and < 30)
+		{
+			firstNumber = "twenty";
+		}
+		else
+		{
+			firstNumber = "thirty";
+		}
+		
+		return $"{firstNumber}{AppendSecondNumber(number % 10)}";
+	}
+
+	private static string AppendSecondNumber(int number)
+	{
+		if (number == 0)
+		{
+			return "";
+		}
+		
+		return $"-{SpellNumberNoBiggerThan20(number)}";
 	}
 
 	private static string SpellNumberNoBiggerThan20(int number)
