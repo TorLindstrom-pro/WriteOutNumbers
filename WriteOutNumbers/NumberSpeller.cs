@@ -23,12 +23,12 @@ public abstract class NumberSpeller
 			18 => "eighteen",
 			19 => "nineteen",
 			20 => "twenty",
-			>= 21 and <= 29 => $"twenty{AppendSecondNumber(number % 10)}",
-			>= 30 and <= 39 => $"thirty{AppendSecondNumber(number % 10)}",
+			>= 21 and <= 29 => $"twenty{AppendEventualSecondNumber(number % 10)}",
+			>= 30 and <= 39 => $"thirty{AppendEventualSecondNumber(number % 10)}",
 		};
 	}
 
-	private static string AppendSecondNumber(int number)
+	private static string AppendEventualSecondNumber(int number)
 	{
 		return number == 0 ? "" : $"-{SpellOutSingleDigit(number)}";
 	}
