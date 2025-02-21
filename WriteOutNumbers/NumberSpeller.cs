@@ -4,26 +4,28 @@ public abstract class NumberSpeller
 {
 	public static string SpellOut(int number)
 	{
-		if (number > 20)
-		{
-			return SpellNumberGreaterThan20(number);
-		}
-		return SpellNumberNoBiggerThan20(number);
+		return SpellNumberWithMultipleDigits(number);
 	}
 
-	private static string SpellNumberGreaterThan20(int number)
+	private static string SpellNumberWithMultipleDigits(int number)
 	{
-		string firstNumber;
-		if (number is > 20 and < 30)
+		return number switch
 		{
-			firstNumber = "twenty";
-		}
-		else
-		{
-			firstNumber = "thirty";
-		}
-		
-		return $"{firstNumber}{AppendSecondNumber(number % 10)}";
+			>= 0 and <= 9 => SpellOutSingleDigit(number),
+			10 => "ten",
+			11 => "eleven",
+			12 => "twelve",
+			13 => "thirteen",
+			14 => "fourteen",
+			15 => "fifteen",
+			16 => "sixteen",
+			17 => "seventeen",
+			18 => "eighteen",
+			19 => "nineteen",
+			20 => "twenty",
+			>= 21 and <= 29 => $"twenty{AppendSecondNumber(number % 10)}",
+			>= 30 and <= 39 => $"thirty{AppendSecondNumber(number % 10)}",
+		};
 	}
 
 	private static string AppendSecondNumber(int number)
@@ -33,10 +35,10 @@ public abstract class NumberSpeller
 			return "";
 		}
 		
-		return $"-{SpellNumberNoBiggerThan20(number)}";
+		return $"-{SpellNumberWithMultipleDigits(number)}";
 	}
 
-	private static string SpellNumberNoBiggerThan20(int number)
+	private static string SpellOutSingleDigit(int number)
 	{
 		return number switch
 		{
@@ -49,18 +51,7 @@ public abstract class NumberSpeller
 			6 => "six",
 			7 => "seven",
 			8 => "eight",
-			9 => "nine",
-			10 => "ten",
-			11 => "eleven",
-			12 => "twelve",
-			13 => "thirteen",
-			14 => "fourteen",
-			15 => "fifteen",
-			16 => "sixteen",
-			17 => "seventeen",
-			18 => "eighteen",
-			19 => "nineteen",
-			20 => "twenty",
+			9 => "nine"
 		};
 	}
 }
