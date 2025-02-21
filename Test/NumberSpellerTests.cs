@@ -40,33 +40,23 @@ public class NumberSpellerTests
 	[InlineData(22, "twenty-two")]
 	[InlineData(27, "twenty-seven")]
 	[InlineData(29, "twenty-nine")]
-	public void GivenANumberOverInTheTwenties_ShouldSpellOutTheNumber(int number, string expectedString)
-	{
-		// act
-		var result = NumberSpeller.SpellOut(number);
-		
-		// assert
-		Assert.Equal(expectedString, result);
-	}
-
-	[Theory(DisplayName = "Given a number in the thirties should spell out the number")]
 	[InlineData(30, "thirty")]
 	[InlineData(31, "thirty-one")]
 	[InlineData(39, "thirty-nine")]
-	public void GivenANumberInTheThirties_ShouldSpellOutTheNumber(int number, string expectedString)
-	{
-		// act
-		var result = NumberSpeller.SpellOut(number);
-		
-		// assert
-		Assert.Equal(expectedString, result);
-	}
-	
-	[Theory(DisplayName = "Given a number in the forties should spell out the number")]
 	[InlineData(40, "forty")]
 	[InlineData(41, "forty-one")]
 	[InlineData(49, "forty-nine")]
-	public void GivenANumberInTheForties_ShouldSpellOutTheNumber(int number, string expectedString)
+	[InlineData(50, "fifty")]
+	[InlineData(59, "fifty-nine")]
+	[InlineData(60, "sixty")]
+	[InlineData(69, "sixty-nine")]
+	[InlineData(70, "seventy")]
+	[InlineData(79, "seventy-nine")]
+	[InlineData(80, "eighty")]
+	[InlineData(89, "eighty-nine")]
+	[InlineData(90, "ninety")]
+	[InlineData(99, "ninety-nine")]
+	public void GivenANumberOverTwenty_ShouldSpellOutTheNumber(int number, string expectedString)
 	{
 		// act
 		var result = NumberSpeller.SpellOut(number);

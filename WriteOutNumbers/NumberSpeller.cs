@@ -26,6 +26,11 @@ public abstract class NumberSpeller
 			>= 21 and <= 29 => $"twenty{AppendEventualSecondNumber(number % 10)}",
 			>= 30 and <= 39 => $"thirty{AppendEventualSecondNumber(number % 10)}",
 			>= 40 and <= 49 => $"forty{AppendEventualSecondNumber(number % 10)}",
+			>= 50 and <= 59 => $"fifty{AppendEventualSecondNumber(number % 10)}",
+			>= 60 and <= 69 => $"sixty{AppendEventualSecondNumber(number % 10)}",
+			>= 70 and <= 79 => $"seventy{AppendEventualSecondNumber(number % 10)}",
+			>= 80 and <= 89 => $"eighty{AppendEventualSecondNumber(number % 10)}",
+			>= 90 and <= 99 => $"ninety{AppendEventualSecondNumber(number % 10)}",
 		};
 	}
 
