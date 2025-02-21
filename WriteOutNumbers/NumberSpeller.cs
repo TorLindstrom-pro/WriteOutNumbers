@@ -4,6 +4,20 @@ public abstract class NumberSpeller
 {
 	public static string SpellOut(int number)
 	{
+		if (number > 20)
+		{
+			return SpellNumberGreaterThan20(number);
+		}
+		return SpellNumberNoBiggerThan20(number);
+	}
+
+	private static string SpellNumberGreaterThan20(int number)
+	{
+		return "twenty-one";
+	}
+
+	private static string SpellNumberNoBiggerThan20(int number)
+	{
 		return number switch
 		{
 			0 => "zero",

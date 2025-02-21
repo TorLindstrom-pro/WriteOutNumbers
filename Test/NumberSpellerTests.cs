@@ -34,4 +34,14 @@ public class NumberSpellerTests
 		// assert
 		Assert.Equal(expectedString, result);
 	}
+
+	[Fact(DisplayName = "Given a number over 20 should write out the number")]
+	public void GivenANumberOver20_ShouldWriteOutTheNumber()
+	{
+		// act
+		var result = NumberSpeller.SpellOut(21);
+		
+		// assert
+		Assert.Equal("twenty-one", result);
+	}
 }
