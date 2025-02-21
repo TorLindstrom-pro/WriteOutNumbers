@@ -4,13 +4,15 @@ namespace Test;
 
 public class NumberWriterTests
 {
-    [Fact(DisplayName = "Inputting number 0 should write out 'zero'")]
-    public void GivenNumber0_ShouldWriteOutZero()
+    [Theory(DisplayName = "Inputting number 0 should write out 'zero'")]
+    [InlineData(0, "zero")]
+    [InlineData(1, "one")]
+    public void GivenNumber0_ShouldWriteOutZero(int number, string? expectedString)
     {
         // act
-        var result = NumberWriter.WriteOut(0);
+        var result = NumberWriter.WriteOut(number);
         
         // assert
-        Assert.Equal("zero", result);
+        Assert.Equal(expectedString, result);
     }
 }

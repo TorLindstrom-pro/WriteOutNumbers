@@ -4,6 +4,6 @@ public abstract class NumberWriter
 {
 	public static string WriteOut(int number)
 	{
-		return "zero";
+		return number == 0 ? "zero" : "one";
 	}
 }
