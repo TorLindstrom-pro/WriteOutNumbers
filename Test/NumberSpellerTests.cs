@@ -64,4 +64,11 @@ public class NumberSpellerTests
 		// assert
 		Assert.Equal(expectedString, result);
 	}
+
+	[Fact]
+	public void UnsupportedNumber_ShouldThrowError()
+	{
+		// assert
+		Assert.Throws<ArgumentOutOfRangeException>(() => NumberSpeller.SpellOut(-1));
+	}
 }

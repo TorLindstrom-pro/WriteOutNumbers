@@ -31,6 +31,7 @@ public abstract class NumberSpeller
 			>= 70 and <= 79 => $"seventy{AppendEventualSecondNumber(number % 10)}",
 			>= 80 and <= 89 => $"eighty{AppendEventualSecondNumber(number % 10)}",
 			>= 90 and <= 99 => $"ninety{AppendEventualSecondNumber(number % 10)}",
+			_ => throw new ArgumentOutOfRangeException()
 		};
 	}
 
