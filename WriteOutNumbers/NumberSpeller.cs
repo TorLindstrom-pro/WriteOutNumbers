@@ -30,12 +30,7 @@ public abstract class NumberSpeller
 
 	private static string AppendSecondNumber(int number)
 	{
-		if (number == 0)
-		{
-			return "";
-		}
-		
-		return $"-{SpellNumberWithMultipleDigits(number)}";
+		return number == 0 ? "" : $"-{SpellOutSingleDigit(number)}";
 	}
 
 	private static string SpellOutSingleDigit(int number)
