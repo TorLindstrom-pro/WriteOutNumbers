@@ -82,6 +82,21 @@ public class NumberSpellerTests
 		Assert.Equal(expectedString, result);
 	}
 
+	[Theory(DisplayName = "Given a number in the thousands should spell out the number")]
+	[InlineData(1000, "one thousand")]
+	[InlineData(1001, "one thousand one")]
+	[InlineData(1999, "one thousand nine hundred ninety-nine")]
+	[InlineData(5432, "five thousand four hundred thirty-two")]
+	[InlineData(9999, "nine thousand nine hundred ninety-nine")]
+	public void GivenNumberInTheThousands_ShouldWriteOutThatNumber(int number, string expectedString)
+	{
+		// act
+		var result = NumberSpeller.SpellOut(number);
+		
+		// assert
+		Assert.Equal(expectedString, result);
+	}
+
 	[Fact]
 	public void UnsupportedNumber_ShouldThrowError()
 	{
