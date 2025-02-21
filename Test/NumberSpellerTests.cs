@@ -35,12 +35,12 @@ public class NumberSpellerTests
 		Assert.Equal(expectedString, result);
 	}
 
-	[Theory(DisplayName = "Given a number over 20 should write out the number")]
+	[Theory(DisplayName = "Given a number in the twenties should spell out the number")]
 	[InlineData(21, "twenty-one")]
 	[InlineData(22, "twenty-two")]
 	[InlineData(27, "twenty-seven")]
 	[InlineData(29, "twenty-nine")]
-	public void GivenANumberOver20_ShouldWriteOutTheNumber(int number, string expectedString)
+	public void GivenANumberOverInTheTwenties_ShouldSpellOutTheNumber(int number, string expectedString)
 	{
 		// act
 		var result = NumberSpeller.SpellOut(number);
