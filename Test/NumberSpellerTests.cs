@@ -88,6 +88,11 @@ public class NumberSpellerTests
 	[InlineData(1999, "one thousand nine hundred ninety-nine")]
 	[InlineData(5432, "five thousand four hundred thirty-two")]
 	[InlineData(9999, "nine thousand nine hundred ninety-nine")]
+	[InlineData(19999, "nineteen thousand nine hundred ninety-nine")]
+	[InlineData(32780, "thirty-two thousand seven hundred eighty")]
+	[InlineData(99999, "ninety-nine thousand nine hundred ninety-nine")]
+	[InlineData(456789, "four hundred fifty-six thousand seven hundred eighty-nine")]
+	[InlineData(999999, "nine hundred ninety-nine thousand nine hundred ninety-nine")]
 	public void GivenNumberInTheThousands_ShouldWriteOutThatNumber(int number, string expectedString)
 	{
 		// act
