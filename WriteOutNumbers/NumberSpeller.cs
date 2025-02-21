@@ -31,14 +31,22 @@ public abstract class NumberSpeller
 			>= 70 and <= 79 => $"seventy{AppendEventualSecondNumber(number % 10)}",
 			>= 80 and <= 89 => $"eighty{AppendEventualSecondNumber(number % 10)}",
 			>= 90 and <= 99 => $"ninety{AppendEventualSecondNumber(number % 10)}",
-			100 => "one hundred",
+			>= 100 => $"one hundred{AppendEventualSecondNumber(number % 100, false)}",
 			_ => throw new ArgumentOutOfRangeException()
 		};
 	}
 
-	private static string AppendEventualSecondNumber(int number)
+	private static string AppendEventualSecondNumber(int number, bool shouldAppendHyphen = true)
 	{
-		return number == 0 ? "" : $"-{SpellOutSingleDigit(number)}";
+		if (number == 0)
+		{
+			return "";
+		}
+		if (shouldAppendHyphen)
+		{
+			return $"-{SpellOutSingleDigit(number)}";
+		}
+		return $" {SpellNumberWithMultipleDigits(number)}";
 	}
 
 	private static string SpellOutSingleDigit(int number)

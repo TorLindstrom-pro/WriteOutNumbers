@@ -65,14 +65,17 @@ public class NumberSpellerTests
 		Assert.Equal(expectedString, result);
 	}
 
-	[Fact]
-	public void GivenHundred_ShouldWriteOutThatNumber()
+	[Theory(DisplayName = "Given a number in the hundreds should spell out the number")]
+	[InlineData(100, "one hundred")]
+	[InlineData(101, "one hundred one")]
+	[InlineData(199, "one hundred ninety-nine")]
+	public void GivenHundred_ShouldWriteOutThatNumber(int number, string expectedString)
 	{
 		// act
-		var result = NumberSpeller.SpellOut(100);
+		var result = NumberSpeller.SpellOut(number);
 		
 		// assert
-		Assert.Equal("one hundred", result);
+		Assert.Equal(expectedString, result);
 	}
 
 	[Fact]
