@@ -40,11 +40,17 @@ public abstract class NumberSpeller
 			>= 70 and <= 79 => $"seventy{AppendEventualSecondNumber(number % 10)}",
 			>= 80 and <= 89 => $"eighty{AppendEventualSecondNumber(number % 10)}",
 			>= 90 and <= 99 => $"ninety{AppendEventualSecondNumber(number % 10)}",
-			>= 100 and <= 999 => $"{SpellNumber(number / 100)} hundred{AppendEventualSecondNumber(number % 100, false)}",
-			>= 1000 and <= 999999 => $"{SpellNumber(number / 1000)} thousand{AppendEventualSecondNumber(number % 1000, false)}",
+			>= 100 and <= 999 => SpellNumberInTheHundreds(number),
+			>= 1000 and <= 999999 => SpellNumberInTheThousands(number),
 			_ => throw new ArgumentOutOfRangeException()
 		};
 	}
+
+	private static string SpellNumberInTheHundreds(int number) => 
+		$"{SpellNumber(number / 100)} hundred{AppendEventualSecondNumber(number % 100, false)}";
+
+	private static string SpellNumberInTheThousands(int number) => 
+		$"{SpellNumber(number / 1000)} thousand{AppendEventualSecondNumber(number % 1000, false)}";
 
 	private static string AppendEventualSecondNumber(int number, bool shouldAppendHyphen = true)
 	{
