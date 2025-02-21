@@ -25,6 +25,7 @@ public abstract class NumberSpeller
 			20 => "twenty",
 			>= 21 and <= 29 => $"twenty{AppendEventualSecondNumber(number % 10)}",
 			>= 30 and <= 39 => $"thirty{AppendEventualSecondNumber(number % 10)}",
+			>= 40 and <= 49 => $"forty{AppendEventualSecondNumber(number % 10)}",
 		};
 	}
 
