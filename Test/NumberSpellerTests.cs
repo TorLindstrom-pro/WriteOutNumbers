@@ -4,7 +4,7 @@ namespace Test;
 
 public class NumberSpellerTests
 {
-    [Theory(DisplayName = "Inputting number 0 should spell out 'zero'")]
+    [Theory(DisplayName = "Inputting a number should spell out that number")]
     [InlineData(0, "zero")]
     [InlineData(1, "one")]
     [InlineData(2, "two")]
@@ -15,7 +15,7 @@ public class NumberSpellerTests
     [InlineData(7, "seven")]
     [InlineData(8, "eight")]
     [InlineData(9, "nine")]
-    public void GivenNumber0_ShouldSpellOutZero(int number, string? expectedString)
+    public void GivenANumber_ShouldSpellOutTheNumber(int number, string? expectedString)
     {
         // act
         var result = NumberSpeller.SpellOut(number);
