@@ -55,15 +55,8 @@ public abstract class NumberSpeller
 	private static string AppendEventualSecondNumber(int number, bool shouldAppendHyphen = true)
 	{
 		if (number == 0)
-		{
 			return "";
-		}
 
-		if (shouldAppendHyphen)
-		{
-			return $"-{SpellNumber(number)}";
-		}
-
-		return $" {SpellNumber(number)}";
+		return (shouldAppendHyphen ? "-" : " ") + SpellNumber(number);
 	}
 }
